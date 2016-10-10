@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Ebooks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Book</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ebooks.each do |ebook| %>
+      <tr>
+        <td><%= ebook.book_id %></td>
+        <td><%= link_to 'Show', ebook %></td>
+        <td><%= link_to 'Edit', edit_ebook_path(ebook) %></td>
+        <td><%= link_to 'Destroy', ebook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ebook', new_ebook_path %>

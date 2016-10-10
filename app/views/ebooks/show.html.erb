@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Book:</strong>
+  <%= @ebook.book_id %>
+</p>
+
+<%= link_to 'Edit', edit_ebook_path(@ebook) %> |
+<%= link_to 'Back', ebooks_path %>

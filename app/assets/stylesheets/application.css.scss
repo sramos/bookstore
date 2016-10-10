@@ -1,0 +1,13 @@
+// Always import first sprockets
+@import "bootstrap-sprockets";
+// Modify and load (or import) bootswatch variables
+$textColor: #000;
+@import "bootswatch/spacelab/variables";
+// Import Bootstrap
+@import "bootstrap";
+// Bootstrap body padding for fixed navbar
+div.container { padding-top: 60px; }
+// And finally bootswatch style itself
+@import "bootswatch/cerulean/bootswatch";
+// Application styles
+//@import "base";
