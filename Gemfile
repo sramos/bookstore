@@ -16,6 +16,7 @@ gem 'bootswatch-rails'
 
 gem "paperclip", "~> 5.0.0"
 gem "devise"
+gem "devise_invitable"
 
 group :development, :test do
   gem 'sqlite3'

@@ -9,4 +9,3 @@
 if User.count == 0
   User.create email: "admin@example.org", password: "administratoR1", rol: :admin
 end
-

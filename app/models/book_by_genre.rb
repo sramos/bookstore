@@ -1,7 +1,10 @@
 class BookByGenre < ActiveRecord::Base
-  belongs_to :book
+  belongs_to :book, inverse_of: :book_by_genres
   belongs_to :genre
 
-  validates :book_id, presence: true
-  validates :genre_id, presence: true
+  # Por algun motivo, esto rompe la creacion encadenada
+  # a pesar de que en Book tenemos un inverse_of en la relacion
+  #validates :book_id, presence: true
+  #validates :genre_id, presence: true
+  validates_uniqueness_of :genre_id, scope: :book_id
 end
