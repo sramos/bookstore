@@ -9,6 +9,10 @@
     <%= f.text_field :isbn, class: "form-control" %>
   </div>
   <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+  <div class="field">
     <%= f.label :cover %><br>
     <%= f.file_field :cover, class: "btn btn-large btn-file btn-primary" %>
   </div>
