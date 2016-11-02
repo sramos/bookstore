@@ -9,14 +9,6 @@
   <hr>
   -->
 
-  <!-- Title -->
-  <div class="row">
-    <div class="col-lg-12">
-      <h3>Latest Books</h3>
-    </div>
-  </div>
-  <!-- Title -->
-
   <!-- Books -->
   <div class="row text-center">
     <% @books.each do |book| %>
@@ -24,6 +16,16 @@
     <% end %>
   </div>
   <!-- Books -->
+
+  <!-- Modal Box -->
+  <div id="bookModal" class="modal fade text-justify" role="dialog" aria-labelledby="bookModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <!-- Modal content -->
+      <div class="modal-content">
+      </div>
+    </div>
+  </div>
+  <!-- Modal Box -->
 
 <br>
 

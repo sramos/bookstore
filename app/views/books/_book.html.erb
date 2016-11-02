@@ -1,12 +1,23 @@
 
-<!--<div class="col-lg-3 col-md-4 col-xs-6 thumb">
-  <div class="thumbnail">-->
+<% modal_id = "bookModal-#{book.id}" %>
+<!-- Book box -->
 <div class="item">
   <div class="well">
     <h3 class="title"><%= book.title %></h3>
     <img src="<%= book.cover.url(:medium) %>" alt="'<%= book.title %>' Cover">
     <p class="caption">
-      <a href="#" class="btn btn-primary">Read Now!</a> <a href="#" class="btn btn-default">More Info</a>
+      <a href="<%= url_for book_url(book) %>?show_modal=1" class="btn btn-primary" data-toggle="modal" data-target="#bookModal">Read Now!</a>
+      <a href="#" class="btn btn-info" data-toggle="modal" data-target="#<%= modal_id %>">More Info</a>
     </p>
+  </div>
+</div>
+
+<!-- Modal Box -->
+<div id="<%= modal_id %>" class="modal fade text-justify" role="dialog" aria-labelledby="<%= modal_id %>" aria-hidden="true">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <%= render partial: "book_modal", locals: {book: book} %>
+    </div>
   </div>
 </div>

@@ -11,6 +11,8 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+    render partial: "book_modal", locals: {book: @book} if params[:show_modal]
+    render :show unless params[:show_modal]
   end
 
   # GET /books/new
