@@ -2,7 +2,33 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.thumbnail .caption h3.title {
+*, *:before, *:after {box-sizing:  border-box !important;}
+
+.row {
+ -moz-column-width: 18em;
+ -webkit-column-width: 18em;
+ -moz-column-gap: 1em;
+ -webkit-column-gap:1em; 
+  
+}
+
+.item {
+ display: inline-block;
+ padding:  .25rem;
+ width:  100%; 
+}
+
+.well {
+ position:relative;
+ display: block;
+}
+
+.well h3.title {
   margin-bottom: 20px;
   margin-top: 10px;
 }
+
+.well p.caption {
+  margin-top: 20px;
+}
+
