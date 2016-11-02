@@ -3,11 +3,9 @@
         <h3 class="modal-title"><%= book.title %></h3>
       </div>
       <div class="modal-body">
-        <p class="pull-left">
-	  <img class="pull-left img-responsive cover" src="<%= book.cover.url(:medium) %>" alt="'<%= book.title %>' Cover">
-          <%= book.description.gsub("\n","<br>").html_safe %>
-          <span class="clearfix"></span>
-        </p>
+        <img class="pull-left img-responsive cover" src="<%= book.cover.url(:medium) %>" alt="'<%= book.title %>' Cover">
+        <%= book.description.gsub("\n","<br>").html_safe %>
+        <span class="clearfix"></span>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
