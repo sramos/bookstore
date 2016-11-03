@@ -1,0 +1,2 @@
+$("#bookModal-content").html("<%= escape_javascript(render partial: 'book_modal', locals: { book: @book } ) %>");
+$("#bookModal").modal('show');
