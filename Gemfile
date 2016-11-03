@@ -18,6 +18,8 @@ gem "paperclip", "~> 5.0.0"
 gem "devise"
 gem "devise_invitable"
 
+gem "epub-parser"
+
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug'
