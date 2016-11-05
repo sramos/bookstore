@@ -9,14 +9,6 @@
   <hr>
   -->
 
-  <!-- Books -->
-  <div class="row text-center">
-    <% @books.each do |book| %>
-      <%= render partial: "book", locals: { book: book } %>
-    <% end %>
-  </div>
-  <!-- Books -->
-
   <!-- Modal Box -->
   <div id="bookModal" class="modal fade text-justify" role="dialog" aria-labelledby="bookModal" aria-hidden="true">
     <div class="modal-dialog">
@@ -27,6 +19,15 @@
   </div>
   <!-- Modal Box -->
 
+  <!-- Books -->
+  <div class="row text-center">
+    <% @books.each do |book| %>
+      <%= render partial: "book", locals: { book: book } %>
+    <% end %>
+  </div>
+  <!-- Books -->
 <br>
+
+<%= paginate @books %>
 
 <%= link_to 'New Book', new_book_path %>

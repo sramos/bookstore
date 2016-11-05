@@ -8,5 +8,6 @@
         <span class="clearfix"></span>
       </div>
       <div class="modal-footer">
+        <%= link_to "Read Now!", "#", class: "btn btn-primary" if user_signed_in? %>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>

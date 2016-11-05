@@ -21,11 +21,18 @@ def read_path folder
 end
 
 def read_epub file
-  book = EPUB::Parser.parse(file)
-  puts "------> TITLE: " + book.metadata.title
-  puts "------> LANG: " + book.metadata.languages.first.content
-  puts "------> AUTHORS: " + book.metadata.creators.collect{|c| c.content}.inspect
-  puts "------> DESCRIPTION: " + book.metadata.description
-  puts "------> PUBLISHERS: " + book.metadata.publishers.collect{|p| p.content}.inspect
-  #puts "------> META: " + book.metadata.inspect
+  begin
+    book = EPUB::Parser.parse(file)
+    puts "------> TITLE: " + book.metadata.title
+    puts "------> ISBN: " + book.metadata.identifiers.select{|i| i.scheme == "ISBN"}.collect{|i| i.content}.join(", ") 
+    puts "------> LANG: " + book.metadata.languages.collect{|l| l.content}.join(", ")
+    puts "------> AUTHORS: " + book.metadata.creators.collect{|c| c.content}.inspect
+    puts "------> SUBJECTS: " + book.metadata.subjects.collect{|s| s.content}.inspect
+    puts "------> DESCRIPTION: " + book.metadata.description
+    puts "------> PUBLISHERS: " + book.metadata.publishers.collect{|p| p.content}.inspect
+    puts "**************** TENEMOS COVER!!!: " + book.metadata.coverages.inspect unless book.metadata.coverages.blank?
+    #puts "------> META: " + book.metadata.inspect
+  rescue Archive::Zip::EntryError => e
+    puts "*** ERROR #{e.class.name} : #{e.message}" 
+  end
 end
