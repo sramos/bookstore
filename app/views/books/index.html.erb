@@ -20,14 +20,17 @@
   <!-- Modal Box -->
 
   <!-- Books -->
-  <div class="row text-center">
-    <% @books.each do |book| %>
-      <%= render partial: "book", locals: { book: book } %>
-    <% end %>
+  <div id="books" class="row text-center">
+    <div class="page">
+      <%= render @books %>
+    </div>
   </div>
   <!-- Books -->
-<br>
 
-<%= paginate @books %>
+  <br>
 
-<%= link_to 'New Book', new_book_path %>
+  <div id="books-pagination">
+    <%= paginate @books %>
+  </div>
+
+  <%= link_to 'New Book', new_book_path %>
