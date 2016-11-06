@@ -19,7 +19,7 @@ gem "devise"
 gem "devise_invitable"
 
 # Parse eBooks
-gem "epub-parser"
+gem "rubyzip"
 
 # Pagination
 gem "kaminari"
