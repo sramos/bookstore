@@ -29,6 +29,9 @@ class Ebook < ActiveRecord::Base
           meta.xpath('//creator').to_a.each do |author|
             mybook.authors << Author.find_or_create_by(name: Author.get_name(author.text))
           end
+	  meta.xpath('//subject').to_a.each do |genre|
+            mybook.genres << Genre.find_or_create_by(name: Genre.get_name(genre.text))
+	  end
           # Another book data 
 	  #mybook.lang = meta.xpath('//language').text
           #puts "------> LANG: " + meta.xpath('//language').text
