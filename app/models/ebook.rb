@@ -27,10 +27,12 @@ class Ebook < ActiveRecord::Base
           mybook.title = meta.xpath('//title').text
           mybook.description = meta.xpath('//description').text
           meta.xpath('//creator').to_a.each do |author|
-            mybook.authors << Author.find_or_create_by(name: Author.get_name(author.text))
+            author_name = Author.get_name(author.text)
+            mybook.authors << Author.find_or_create_by(name: author_name) if author_name
           end
 	  meta.xpath('//subject').to_a.each do |genre|
-            mybook.genres << Genre.find_or_create_by(name: Genre.get_name(genre.text))
+            genre_name = Genre.get_name(genre.text)
+            mybook.genres << Genre.find_or_create_by(name: genre_name) if genre_name
 	  end
           # Another book data 
 	  #mybook.lang = meta.xpath('//language').text

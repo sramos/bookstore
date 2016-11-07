@@ -9,8 +9,9 @@ class Genre < ActiveRecord::Base
     def search string
       find.order(:name).where(['name LIKE ?', '%' + string + '%'])
     end
-    def get_name temp_name 
-      temp_name.mb_chars.downcase.to_s
+    def get_name name 
+      temp_name = name.mb_chars.downcase.to_s
+      return temp_name unless temp_name == "spanish" || temp_name == "general interest" || temp_name == "unknown"
     end   
   end
 end
