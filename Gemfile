@@ -14,6 +14,8 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'bootswatch-rails'
 
+gem 'mysql2'
+
 gem "paperclip", "~> 5.0.0"
 gem "devise"
 gem "devise_invitable"
@@ -31,6 +33,3 @@ group :development, :test do
   gem 'spring'
 end
 
-group :production do
-  gem 'mysql2'
-end
