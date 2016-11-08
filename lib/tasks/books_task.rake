@@ -9,6 +9,8 @@ namespace :books do
 end
 
 def read_path folder 
+  admin = User.where(rol: User::rols["admin"]).first
+  puts "------> ERROR: No existe ningun usuario admin" if admin.nil?
   Dir.entries(folder).each do |item|
     fullname = File.join(folder, item)
     if File.directory?(fullname)
@@ -23,6 +25,7 @@ def read_path folder
 	  ebook.ebook = File.open(fullname, 'rb')
           ebook.save
           puts "------> ERROR: Error guardando ebook: " + ebook.errors.inspect unless ebook.errors.empty?
+	  EbookByUser.create(ebook_id: ebook.id, user_id: admin.id) if ebook.errors.empty?
         else
 	  puts "------> ERROR: Error leyendo ebook: " + ebook.errors.inspect unless ebook.errors.empty?
 	  puts "------> ERROR: Error generando book: " + book.errors.inspect unless book.nil? || book.errors.empty?
@@ -30,5 +33,5 @@ def read_path folder
         end
       end
     end
-  end
+  end if admin
 end

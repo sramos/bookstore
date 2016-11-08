@@ -1,8 +1,10 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h3 class="modal-title"><%= book.title %></h3>
-	<h4 class="modal-title text-capitalize"><%= book.authors.collect{|a| a.name}.join(", ") %></h4>
-	<h4 class="modal-title text-capitalize"><%= book.genres.collect{|g| g.name}.join(", ") %><h4>
+	<h4 class="modal-title text-capitalize">
+          <span><%= book.authors.collect{|a| a.name}.join(", ") %></span>
+          <span class="pull-right"><%= book.genres.collect{|g| g.name}.join(", ") %></span>
+	</h4>
       </div>
       <div class="modal-body">
         <img class="pull-left img-responsive cover" src="<%= book.cover.url(:medium) %>" alt="'<%= book.title %>' Cover">
@@ -10,6 +12,6 @@
         <span class="clearfix"></span>
       </div>
       <div class="modal-footer">
-        <%= link_to "Read Now!", "#", class: "btn btn-primary" if user_signed_in? %>
+        <%= link_to "Read Now!", "#", class: "btn btn-primary" if user_signed_in? && current_user.books.find_by_id(book.id) %>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>

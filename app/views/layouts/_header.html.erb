@@ -27,7 +27,7 @@
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-left" role="search">
+      <%= form_tag '/pages/search', method: 'get', class: 'navbar-form navbar-right', role: 'search' %>
         <div class="form-group">
           <input class="form-control" placeholder="Search" type="text">
         </div>
@@ -35,8 +35,8 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
 	<% if user_signed_in? %>
+          <li><%= link_to current_user.email, "#" %></li>
           <li><%= link_to t("sign_out"), destroy_user_session_path, method: :delete %></li>
-          <li><%# current_user.email %></li>
         <% else %>
           <li><%= link_to t("sign_in"), new_user_session_path %></li>
         <% end %>

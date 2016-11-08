@@ -1,11 +1,11 @@
 
 <!-- Book box -->
-<div class="item book">
+<div id="book-<%= book.id %>" class="item book">
   <div class="well">
     <h3 class="title"><%= book.title %></h3>
     <img src="<%= book.cover.url(:medium) %>" alt="'<%= book.title %>' Cover">
     <p class="caption">
-      <%= link_to "Read Now!", "#", class: "btn btn-primary" if user_signed_in? %>
+      <%= link_to "Read Now!", "#", class: "btn btn-primary" if user_signed_in? && current_user.books.find_by_id(book.id) %>
       <%= link_to "More Info", book_url(book), remote: true, class: "btn btn-info" %>
     </p>
   </div>

@@ -1,6 +1,8 @@
 class Ebook < ActiveRecord::Base
-  require 'zip'
   belongs_to :book
+  has_many :ebook_by_users, dependent: :destroy
+  has_many :users, through: :ebook_by_users
+
   has_attached_file :ebook, url: '/:class/:id/download/:style.:extension',
                             path: ':rails_root/private/:class/:attachment/:id_partition/:style/:filename'
 
