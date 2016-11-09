@@ -3,7 +3,9 @@
 namespace :books do
   desc "Carga todos los libros de un path indicado"
   task parser: :environment do
-    base_path = '/Volumes/videos/Libros'
+    puts "\n¿Ubicación de los libros? (indica la ruta completa)"
+    base_path = $stdin.gets.chomp
+    base_path = '/Volumes/videos/Libros' if base_path.blank?
     read_path base_path
   end
 end
