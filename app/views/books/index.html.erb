@@ -33,4 +33,4 @@
     <%= paginate @books %>
   </div>
 
-  <%= link_to 'New Book', new_book_path %>
+  <%= link_to 'New Book', new_book_path if user_signed_in? %>
